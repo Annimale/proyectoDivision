@@ -4,6 +4,7 @@
  */
 package proyecto_division;
 
+import java.util.InputMismatchException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,9 +48,20 @@ public class DivisionTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    public void testFallo() throws Exception {
+    public void testDivisionPorCero() {
+    System.out.println("calcularDivision");
+    float dividendo = 10.0F;
+    float divisor = 0.0F;
+    try {
+        float result = Division.calcularDivision(dividendo, divisor);
+        fail("Excepción por división entre 0");
+    } catch (Exception e) {
+        assertEquals("Error. El divisor no puede ser 0.", e.getMessage());
+    }
+}
+    public void testMissmatchException() throws InputMismatchException, Exception {
         System.out.println("calcularDivision");
-        float dividendo = 0.0F;
+        float dividendo = 5.0F;
         float divisor = 0.0F;
         float expResult = 0.0F;
         float result = Division.calcularDivision(dividendo, divisor);
@@ -57,5 +69,6 @@ public class DivisionTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    
     
 }
